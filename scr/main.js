@@ -1,6 +1,8 @@
+import { sum } from './sum.js';
+import { getColor } from './colors.js';
+
 console.log('Lesson 2');
 console.log('----------------------------');
-
 
 let user = 'John Doe';
 console.log(user);
@@ -9,7 +11,6 @@ console.log(student);
 user = student; //expected outcome: Natallia Burtina
 console.log(user);
 console.log('----------------------------');
-
 
 let test = 1;
 test += '1'; //expected outcome: 11
@@ -20,7 +21,6 @@ test = Boolean(test); // expected outcome: true
 console.log(test);
 console.log('----------------------------');
 
-
 let num = [2, 3, 5, 8];
 let product = 1;
 
@@ -30,7 +30,6 @@ for (let i = 0; i < num.length; i++) {
 
 console.log('Произведение элементов этого массива равно', product);
 console.log('----------------------------');
-
 
 num = [2, 5, 8, 15, 0, 6, 20, 3];
 console.log('Элементы массива, которые больше 5-ти, но меньше 10-ти:');
@@ -107,7 +106,6 @@ function maxWithTernaryOperator(a, b) {
 console.log('Большее из чисел', maxWithTernaryOperator(5, 7));
 console.log('----------------------------');
 
-
 const arr = [];
 
 for (let i = 0; i < 10; i++) {
@@ -129,3 +127,30 @@ function replaceZeroWithString(arr) {
 }
 
 console.log('Полученный массив ', replaceZeroWithString(arr));
+
+console.log('----------------------------------------');
+
+console.log('Lesson 4');
+console.log('----------------------------');
+
+console.log('Суммва двух чисел равна ', sum(5)(2)); // 7
+console.log('----------------------------');
+
+export const colors = [
+  'magenta',
+  'cyan',
+  'firebrick',
+  'springgreen',
+  'skyblue',
+];
+
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+const paragraph = [text1, text2, text3];
+
+for (let i = 0; i <= paragraph.length; i++) {
+  if (paragraph[i]) {
+    paragraph[i].addEventListener('click', getColor(paragraph[i]));
+  }
+}
