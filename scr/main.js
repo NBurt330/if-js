@@ -1,5 +1,7 @@
-import { sum } from './sum.js';
+import { changeDateFormat, sum } from './sum.js';
 import { getColor } from './colors.js';
+import { hotels } from './constants/hotels.js';
+import { data } from './constants/data.js';
 
 console.log('Lesson 2');
 console.log('----------------------------');
@@ -119,10 +121,12 @@ function replaceZeroWithString(arr) {
     arr[i] = arr[i] + '';
     arr[i] = arr[i].replace(0, 'zero');
     arr[i] = arr[i].replace(0, 'zero');
+
     if (arr[i].includes('zero') === false) {
       arr[i] = Number(arr[i]);
     }
   }
+
   return arr;
 }
 
@@ -133,7 +137,7 @@ console.log('----------------------------------------');
 console.log('Lesson 4');
 console.log('----------------------------');
 
-console.log('Суммва двух чисел равна ', sum(5)(2)); // 7
+console.log('Сумма двух чисел равна ', sum(5)(2)); // 7
 console.log('----------------------------');
 
 export const colors = [
@@ -154,3 +158,122 @@ for (let i = 0; i <= paragraph.length; i++) {
     paragraph[i].addEventListener('click', getColor(paragraph[i]));
   }
 }
+
+console.log('----------------------------------------');
+
+console.log('Lesson 5');
+console.log('----------------------------');
+
+const date = '2020-11-26';
+console.log('Введенная дата', date);
+console.log('Дата в новом формате', changeDateFormat(date));
+console.log('----------------------------');
+
+function stringSearch(str) {
+  const result = [];
+
+  for (let i = 0; i < data.length; i++) {
+    const itemSearch = `${data[i].country}, ${data[i].city}, ${data[i].hotel}`;
+
+    if (itemSearch.includes(str)) {
+      result.push(itemSearch);
+    }
+  }
+
+  return result.length > 0 ? result : 'No matches';
+}
+
+let str = 'Berlin';
+console.log('Поиск по слову', str, stringSearch(str));
+
+console.log('----------------------------------------');
+
+console.log('Lesson 6');
+console.log('----------------------------');
+
+function palindromeNew(word) {
+  return word === word.split().reverse().join();
+}
+
+const word = 'шалаш';
+console.log(`Является ли слово ${word} палиндромом:`, palindromeNew(word));
+console.log('----------------------------');
+
+function newStringSearch(str) {
+  const result = hotels.filter((elem) =>
+    `${elem.country}, ${elem.city}, ${elem.name}`.includes(str),
+  );
+
+  let resultStr = [];
+
+  result.forEach(
+    (elem) =>
+      (resultStr = [
+        ...resultStr,
+        `${elem.country}, ${elem.city}, ${elem.name}`,
+      ]),
+  );
+
+  return resultStr;
+}
+
+str = 'USA';
+console.log('Поиск по слову', str, newStringSearch(str));
+console.log('----------------------------');
+
+function matchCountryWithCities(arr) {
+  return arr.reduce((acc, elem) => {
+    if (Object.keys(acc).includes(elem.country)) {
+      acc[elem.country] = [...acc[elem.country], elem.city];
+      return acc;
+    } else {
+      acc[elem.country] = [elem.city];
+      return acc;
+    }
+  }, []);
+}
+
+console.log(
+  'Уникальные страны и сопоставимые с ними города',
+  matchCountryWithCities(hotels),
+);
+console.log('----------------------------');
+
+function getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek) {
+  let numOfWeeks = 0;
+
+  if (dayOfWeek > 30 || dayOfWeek >= daysInWeek) {
+    return 'Wrong date';
+  } else {
+    numOfWeeks = Math.ceil((daysInMonth + dayOfWeek) / daysInWeek);
+    let result = [];
+    let count = daysInMonth - dayOfWeek + 1;
+
+    for (let i = 0; i < numOfWeeks; i++) {
+      const numOfWeek = [];
+
+      for (let j = 0; j < daysInWeek; j++) {
+        count <= daysInMonth
+          ? numOfWeek.push(count)
+          : numOfWeek.push(count - 30);
+        count++;
+
+        if (count >= 2 * daysInMonth) {
+          count = count - daysInMonth;
+        }
+      }
+
+      result = [...result, numOfWeek];
+    }
+
+    return result;
+  }
+}
+
+const daysInMonth = 30;
+const daysInWeek = 7;
+const dayOfWeek = 4;
+const calendarMonth = getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek);
+console.log(calendarMonth);
+
+console.log('----------------------------');
