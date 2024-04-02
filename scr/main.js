@@ -2,6 +2,7 @@ import { changeDateFormat, sum } from './sum.js';
 import { getColor } from './colors.js';
 import { hotels } from './constants/hotels.js';
 import { data } from './constants/data.js';
+import { obj1, obj2, obj3 } from './constants/objects.js';
 
 console.log('Lesson 2');
 console.log('----------------------------');
@@ -270,10 +271,111 @@ function getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek) {
   }
 }
 
-const daysInMonth = 30;
-const daysInWeek = 7;
-const dayOfWeek = 4;
+let daysInMonth = 30;
+let daysInWeek = 7;
+let dayOfWeek = 4;
 const calendarMonth = getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek);
 console.log(calendarMonth);
 
+console.log('----------------------------------------');
+
+console.log('Lesson 7');
 console.log('----------------------------');
+
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) {
+    return true;
+  }
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  if (keys1.sort().join() !== keys2.sort().join()) {
+    return false;
+  }
+
+  for (const key in obj1) {
+    const val1 = obj1[key];
+    const val2 = obj2[key];
+
+    if (typeof val1 !== 'object' && typeof val2 !== 'object' && val1 !== val2) {
+      return false;
+    }
+
+    if (
+      (typeof val1 == 'object' || typeof val2 == 'object') &&
+      !deepEqual(val1, val2)
+    ) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
+console.log('----------------------------');
+
+function getCalendarMonthNew(
+  daysInMonth,
+  daysInWeek,
+  dayOfWeek,
+  checkInDate,
+  checkOutDate,
+) {
+  if (dayOfWeek > 30 || dayOfWeek >= daysInWeek) {
+    return 'Wrong date';
+  } else {
+    const numOfWeeks = Math.ceil((daysInMonth + dayOfWeek) / daysInWeek);
+
+    let calendarMonth = [];
+    let count = daysInMonth - dayOfWeek + 1;
+
+    for (let i = 0; i < numOfWeeks * daysInWeek; i++) {
+      const currentDayOfMonth = {};
+
+      if (count <= daysInMonth) {
+        currentDayOfMonth.dayOfMonth = count;
+        currentDayOfMonth.notCurrentMonth = true;
+      } else if (count > 2 * daysInMonth) {
+        currentDayOfMonth.dayOfMonth = count - 2 * daysInMonth;
+        currentDayOfMonth.dayOfMonth < daysInWeek
+          ? (currentDayOfMonth.notCurrentMonth = true)
+          : (currentDayOfMonth.notCurrentMonth = false);
+      } else {
+        currentDayOfMonth.dayOfMonth = count - 30;
+        currentDayOfMonth.notCurrentMonth = false;
+      }
+
+      currentDayOfMonth.selectedDay =
+        currentDayOfMonth.notCurrentMonth === false &&
+        (currentDayOfMonth.dayOfMonth === checkInDate ||
+          currentDayOfMonth.dayOfMonth === checkOutDate);
+
+      count++;
+
+      calendarMonth = [...calendarMonth, currentDayOfMonth];
+    }
+    return calendarMonth;
+  }
+}
+
+daysInMonth = 30;
+daysInWeek = 7;
+dayOfWeek = 4;
+const checkInDate = 5;
+const checkOutDate = 8;
+console.log(
+  getCalendarMonthNew(
+    daysInMonth,
+    daysInWeek,
+    dayOfWeek,
+    checkInDate,
+    checkOutDate,
+  ),
+);
