@@ -3,6 +3,9 @@ import { getColor } from './colors.js';
 import { hotels } from './constants/hotels.js';
 import { data } from './constants/data.js';
 import { obj1, obj2, obj3 } from './constants/objects.js';
+import { Students } from './entities/students.js';
+import { User } from './entities/user.js';
+import { Student } from './entities/student.js';
 
 console.log('Lesson 2');
 console.log('----------------------------');
@@ -165,7 +168,7 @@ console.log('----------------------------------------');
 console.log('Lesson 5');
 console.log('----------------------------');
 
-const date = '2020-11-26';
+let date = '2020-11-26';
 console.log('Введенная дата', date);
 console.log('Дата в новом формате', changeDateFormat(date));
 console.log('----------------------------');
@@ -368,8 +371,8 @@ function getCalendarMonthNew(
 daysInMonth = 30;
 daysInWeek = 7;
 dayOfWeek = 4;
-const checkInDate = 5;
-const checkOutDate = 8;
+let checkInDate = 5;
+let checkOutDate = 8;
 console.log(
   getCalendarMonthNew(
     daysInMonth,
@@ -379,3 +382,154 @@ console.log(
     checkOutDate,
   ),
 );
+
+console.log('----------------------------------------');
+
+console.log('Lesson 8');
+console.log('----------------------------');
+
+const user1 = new User('Ivan', 'Petrov');
+console.log(user1);
+const student1 = new Student('Ivan', 'Petrov', 2020, 'Java Script');
+console.log(student1);
+
+const studentsData = [
+  {
+    firstName: 'Василий',
+    lastName: 'Петров',
+    admissionYear: 2019,
+    courseName: 'Java',
+  },
+  {
+    firstName: 'Иван',
+    lastName: 'Иванов',
+    admissionYear: 2018,
+    courseName: 'JavaScript',
+  },
+  {
+    firstName: 'Александр',
+    lastName: 'Федоров',
+    admissionYear: 2017,
+    courseName: 'Python',
+  },
+  {
+    firstName: 'Николай',
+    lastName: 'Петров',
+    admissionYear: 2019,
+    courseName: 'Android',
+  },
+];
+
+const students = new Students(studentsData);
+console.log(students.getInfo);
+
+console.log('----------------------------------------');
+
+console.log('Lesson 9');
+console.log('----------------------------');
+
+const newText1 = document.getElementById('newText1');
+const newText2 = document.getElementById('newText2');
+const newText3 = document.getElementById('newText3');
+const newParagraph = [newText1, newText2, newText3];
+
+const newColors = {
+  data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+  [Symbol.iterator]() {
+    let i = 0;
+    const next = () => {
+      if (i < this.data.length) {
+        const value = this.data[i++];
+        return { value, done: false };
+      }
+
+      if (i === this.data.length) {
+        i = 0;
+        const value = this.data[i++];
+        return { value, done: false };
+      }
+
+      return { done: true };
+    };
+
+    return { next };
+  },
+};
+
+for (const text of newParagraph) {
+  const colorsIterator = newColors[Symbol.iterator]();
+
+  if (text) {
+    text.onclick = function () {
+      text.style.color = colorsIterator.next().value;
+    };
+  }
+}
+
+console.log('----------------------------');
+
+function newGetCalendarMonth(date, checkInDate, checkOutDate) {
+  let tempDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const daysInMonth = tempDate.getDate();
+
+  tempDate = new Date(date.getFullYear(), date.getMonth(), 1);
+  const dayOfWeek = tempDate.getDay();
+
+  const daysInWeek = 7;
+
+  const numOfWeeks = Math.ceil((daysInMonth + dayOfWeek) / daysInWeek);
+
+  let calendarMonth = [];
+
+  if (dayOfWeek !== 0) {
+    tempDate = new Date(date.getFullYear(), date.getMonth(), 0);
+    let count = tempDate.getDate() - dayOfWeek + 1;
+
+    for (let i = 0; i <= dayOfWeek - 1; i++) {
+      const currentDayOfMonth = {};
+      currentDayOfMonth.dayOfMonth = count;
+      currentDayOfMonth.notCurrentMonth = true;
+      currentDayOfMonth.selectedDay = false;
+      currentDayOfMonth.currentDay = false;
+      calendarMonth = [...calendarMonth, currentDayOfMonth];
+      count++;
+    }
+  }
+
+  let count = 1;
+  for (let i = 0; i <= daysInMonth - 1; i++) {
+    const currentDayOfMonth = {};
+    currentDayOfMonth.dayOfMonth = count;
+    currentDayOfMonth.notCurrentMonth = false;
+    currentDayOfMonth.selectedDay =
+      currentDayOfMonth.dayOfMonth === checkInDate ||
+      currentDayOfMonth.dayOfMonth === checkOutDate;
+    currentDayOfMonth.currentDay = count === date.getDate();
+    count++;
+    calendarMonth = [...calendarMonth, currentDayOfMonth];
+  }
+
+  count = 1;
+  if (numOfWeeks * daysInWeek > daysInMonth + dayOfWeek - 1) {
+    for (
+      let i = 0;
+      i < numOfWeeks * daysInWeek - daysInMonth - dayOfWeek;
+      i++
+    ) {
+      const currentDayOfMonth = {};
+      currentDayOfMonth.dayOfMonth = count;
+      currentDayOfMonth.notCurrentMonth = true;
+      currentDayOfMonth.selectedDay = false;
+      currentDayOfMonth.currentDay = false;
+      count++;
+      calendarMonth = [...calendarMonth, currentDayOfMonth];
+    }
+  }
+
+  return calendarMonth;
+}
+
+date = new Date();
+checkInDate = 5;
+checkOutDate = 8;
+console.log(newGetCalendarMonth(date, checkInDate, checkOutDate));
