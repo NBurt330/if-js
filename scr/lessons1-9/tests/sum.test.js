@@ -1,6 +1,6 @@
-import { sum } from '../scr/sum.js';
+import { sum } from '../sum.js';
 import { randNumber } from '@ngneat/falso';
-import { changeDateFormat } from '../scr/sum.js';
+import { changeDateFormat } from '../sum.js';
 
 test('sum of two numbers', () => {
   const num1 = randNumber();

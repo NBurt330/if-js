@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { getColor } from '../scr/colors.js';
-import { colors } from '../scr/main.js';
+import { getColor } from '../colors.js';
+import { colors } from '../main.js';
 
 test('After first click expect color magenta', () => {
   document.body.innerHTML = `
