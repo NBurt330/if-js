@@ -1,4 +1,4 @@
-// lesson 12
+// lesson 14
 
 const getElem = document.querySelector('.homes__pictures');
 
@@ -12,17 +12,38 @@ if (window.screen.width > 1024) {
   numOfImagesOnSlide = 2;
 }
 
-fetch('https://if-student-api.onrender.com/api/hotels/popular')
-  .then((response) => response.json())
-  .then((data) => {
-    for (let i = 0; i < numOfImagesOnSlide; i++) {
-      getElem.innerHTML +=
-        `<div class="homes__picture  col-lg-3 col-md-4 col-sm-3" id="${data[i].id}"><img class="homes__images" ` +
-        `src=${data[i].imageUrl} alt="${data[i].name}">` +
-        `<div class="homes__name">${data[i].name}</div><div class="homes__location">${data[i].city}, ${data[i].country}</div></div>`;
-    }
-  })
-  .catch((err) => console.log(err));
+const fetchArray = () =>
+  fetch('https://if-student-api.onrender.com/api/hotels/popular')
+    .then((response) => {
+      return response.json();
+    })
+    .catch((e) => {
+      console.error('Error!!!', e.message);
+    });
+
+function addHotels(data) {
+  for (let i = 0; i < numOfImagesOnSlide; i++) {
+    getElem.innerHTML +=
+      `<div class="homes__picture  col-lg-3 col-md-4 col-sm-3" id="${data[i].id}"><img class="homes__images" ` +
+      `src=${data[i].imageUrl} alt="${data[i].name}">` +
+      `<div class="homes__name">${data[i].name}</div><div class="homes__location">${data[i].city}, ${data[i].country}</div></div>`;
+  }
+}
+
+async function checkSessionStorage() {
+  const dataStorage = sessionStorage.getItem('hotels');
+
+  if (dataStorage === null) {
+    const dataNewStorage = await fetchArray();
+    addHotels(dataNewStorage);
+    sessionStorage.setItem('hotels', JSON.stringify(dataNewStorage));
+  } else {
+    const dataInSessionStorage = JSON.parse(dataStorage);
+    addHotels(dataInSessionStorage);
+  }
+}
+
+checkSessionStorage();
 
 //lesson 11
 
@@ -158,10 +179,8 @@ const getAvailableHotels = (event) => {
         getNewElem.innerHTML =
           '<div class="hotels__picture">No hotels found</div>';
       } else {
-        let maxHotelsNumber;
-        numOfImagesOnSlide < data.length
-          ? (maxHotelsNumber = numOfImagesOnSlide)
-          : (maxHotelsNumber = data.length);
+        const maxHotelsNumber =
+          numOfImagesOnSlide < data.length ? numOfImagesOnSlide : data.length;
 
         for (let i = 0; i < maxHotelsNumber; i++) {
           getNewElem.innerHTML +=

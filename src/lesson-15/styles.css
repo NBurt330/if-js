@@ -1,0 +1,30 @@
+.input__file {
+  margin-bottom: 10px;
+}
+
+.input__btn {
+  margin-bottom: 10px;
+}
+
+.input__div {
+  display: flex;
+  max-width: 600px;
+  height: 600px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.input__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.form {
+  max-width: 600px;
+  background-color: burlywood;
+  padding: 20px;
+}
