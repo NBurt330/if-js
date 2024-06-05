@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "prepare": "husky",
-    "lint": "prettier --write . && eslint src/lessons1-9/main.js --fix",
+    "lint": "prettier --write . && eslint",
     "prepublish": "npm run lint && npm test"
   },
   "author": "",
