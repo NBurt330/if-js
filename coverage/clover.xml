@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1714413018248" clover="3.2.0">
-  <project timestamp="1714413018248" name="All files">
-    <metrics statements="301" coveredstatements="281" conditionals="77" coveredconditionals="56" methods="34" coveredmethods="32" elements="412" coveredelements="369" complexity="0" loc="301" ncloc="301" packages="3" files="9" classes="9"/>
-    <package name="lessons1-9">
-      <metrics statements="278" coveredstatements="258" conditionals="77" coveredconditionals="56" methods="25" coveredmethods="23"/>
-      <file name="colors.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\colors.js">
+<coverage generated="1717617047191" clover="3.2.0">
+  <project timestamp="1717617047191" name="All files">
+    <metrics statements="316" coveredstatements="295" conditionals="85" coveredconditionals="62" methods="35" coveredmethods="33" elements="436" coveredelements="390" complexity="0" loc="316" ncloc="316" packages="3" files="9" classes="9"/>
+    <package name="other_lessons">
+      <metrics statements="293" coveredstatements="272" conditionals="85" coveredconditionals="62" methods="26" coveredmethods="24"/>
+      <file name="colors.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\colors.js">
         <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
@@ -14,8 +14,8 @@
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
       </file>
-      <file name="main.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\main.js">
-        <metrics statements="268" coveredstatements="249" conditionals="75" coveredconditionals="55" methods="20" coveredmethods="18"/>
+      <file name="main.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\main.js">
+        <metrics statements="283" coveredstatements="263" conditionals="83" coveredconditionals="61" methods="21" coveredmethods="19"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
@@ -83,8 +83,8 @@
         <line num="125" count="10" type="stmt"/>
         <line num="126" count="10" type="stmt"/>
         <line num="127" count="10" type="stmt"/>
-        <line num="129" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="130" count="9" type="stmt"/>
+        <line num="129" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="130" count="10" type="stmt"/>
         <line num="134" count="1" type="stmt"/>
         <line num="137" count="1" type="stmt"/>
         <line num="139" count="1" type="stmt"/>
@@ -252,13 +252,13 @@
         <line num="485" count="1" type="stmt"/>
         <line num="486" count="1" type="stmt"/>
         <line num="488" count="1" type="stmt"/>
-        <line num="489" count="1" type="stmt"/>
-        <line num="490" count="1" type="stmt"/>
-        <line num="491" count="1" type="stmt"/>
-        <line num="492" count="1" type="stmt"/>
-        <line num="493" count="1" type="stmt"/>
-        <line num="494" count="1" type="stmt"/>
-        <line num="495" count="1" type="stmt"/>
+        <line num="489" count="6" type="stmt"/>
+        <line num="490" count="6" type="stmt"/>
+        <line num="491" count="6" type="stmt"/>
+        <line num="492" count="6" type="stmt"/>
+        <line num="493" count="6" type="stmt"/>
+        <line num="494" count="6" type="stmt"/>
+        <line num="495" count="6" type="stmt"/>
         <line num="499" count="1" type="stmt"/>
         <line num="500" count="1" type="stmt"/>
         <line num="501" count="30" type="stmt"/>
@@ -272,46 +272,61 @@
         <line num="513" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="514" count="1" type="stmt"/>
         <line num="515" count="1" type="stmt"/>
-        <line num="519" count="4" type="stmt"/>
-        <line num="520" count="4" type="stmt"/>
-        <line num="521" count="4" type="stmt"/>
-        <line num="522" count="4" type="stmt"/>
-        <line num="523" count="4" type="stmt"/>
-        <line num="524" count="4" type="stmt"/>
-        <line num="525" count="4" type="stmt"/>
+        <line num="519" count="6" type="stmt"/>
+        <line num="520" count="6" type="stmt"/>
+        <line num="521" count="6" type="stmt"/>
+        <line num="522" count="6" type="stmt"/>
+        <line num="523" count="6" type="stmt"/>
+        <line num="524" count="6" type="stmt"/>
+        <line num="525" count="6" type="stmt"/>
         <line num="529" count="1" type="stmt"/>
         <line num="532" count="1" type="stmt"/>
         <line num="533" count="1" type="stmt"/>
         <line num="534" count="1" type="stmt"/>
         <line num="535" count="1" type="stmt"/>
+        <line num="538" count="2" type="stmt"/>
+        <line num="539" count="2" type="stmt"/>
+        <line num="540" count="2" type="stmt"/>
+        <line num="542" count="2" type="stmt"/>
+        <line num="543" count="65" type="cond" truecount="2" falsecount="0"/>
+        <line num="544" count="6" type="stmt"/>
+        <line num="545" count="59" type="cond" truecount="2" falsecount="0"/>
+        <line num="546" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="547" count="0" type="stmt"/>
+        <line num="549" count="5" type="stmt"/>
+        <line num="553" count="2" type="stmt"/>
+        <line num="556" count="1" type="stmt"/>
+        <line num="557" count="1" type="stmt"/>
+        <line num="559" count="1" type="stmt"/>
+        <line num="560" count="1" type="stmt"/>
       </file>
-      <file name="sum.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\sum.js">
+      <file name="sum.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\sum.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="lessons1-9.constants">
+    <package name="other_lessons.constants">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="data.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\constants\data.js">
+      <file name="data.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\constants\data.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="hotels.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\constants\hotels.js">
+      <file name="hotels.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\constants\hotels.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
-      <file name="objects.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\constants\objects.js">
+      <file name="objects.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\constants\objects.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="lessons1-9.entities">
+    <package name="other_lessons.entities">
       <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
-      <file name="student.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\entities\student.js">
+      <file name="student.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\entities\student.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="5" count="5" type="stmt"/>
         <line num="6" count="5" type="stmt"/>
@@ -319,7 +334,7 @@
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
       </file>
-      <file name="students.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\entities\students.js">
+      <file name="students.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\entities\students.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="5" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -332,7 +347,7 @@
         <line num="26" count="1" type="stmt"/>
         <line num="28" count="4" type="stmt"/>
       </file>
-      <file name="user.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\scr\lessons1-9\entities\user.js">
+      <file name="user.js" path="C:\Users\Nata\Documents\Intellectfox\dev\if-js\src\other_lessons\entities\user.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="6" type="stmt"/>
         <line num="4" count="6" type="stmt"/>

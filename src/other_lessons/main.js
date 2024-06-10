@@ -533,3 +533,28 @@ date = new Date();
 checkInDate = 5;
 checkOutDate = 8;
 console.log(newGetCalendarMonth(date, checkInDate, checkOutDate));
+
+function checkBracesSyntax(inputString) {
+  const stack = [];
+  const openingBrace = '{';
+  const closingBrace = '}';
+
+  for (const value of inputString) {
+    if (openingBrace.includes(value)) {
+      stack.push(value);
+    } else if (closingBrace.includes(value)) {
+      if (stack.length === 0 || stack[stack.length - 1] !== '{') {
+        return false;
+      } else {
+        stack.pop();
+      }
+    }
+  }
+  return stack.length === 0;
+}
+
+let inputString = '{user: {name: "John", age: 21}}';
+console.log(checkBracesSyntax(inputString));
+
+inputString = '{user: {name: }{"John", age: 21{}}';
+console.log(checkBracesSyntax(inputString));
